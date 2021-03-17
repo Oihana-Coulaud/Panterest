@@ -28,7 +28,7 @@ trait Timestampable
 
     public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->updateAt;
+        return $this->updatedAt;
     }
 
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
@@ -49,6 +49,6 @@ trait Timestampable
             $this->setCreatedAt(new \DateTimeImmutable);
         }
         
-        $this->setUpdateAt(new \DateTimeImmutable);
+        $this->setUpdatedAt(new \DateTimeImmutable);
     }
 }
