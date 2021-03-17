@@ -12,7 +12,7 @@ trait Timestampable
     /**
      * @ORM\Column(type="datetime", options ={"default": "CURRENT_TIMESTAMP"})
      */
-    private $updateAt;
+    private $updatedAt;
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -26,14 +26,14 @@ trait Timestampable
         return $this;
     }
 
-    public function getUpdateAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updateAt;
     }
 
-    public function setUpdateAt(\DateTimeInterface $updateAt): self
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
-        $this->updateAt = $updateAt;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
