@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+
 /**
  * @ORM\Entity(repositoryClass=PinRepository::class)
  * @ORM\Table(name="pins")
@@ -20,7 +21,7 @@ class Pin
     use Timestampable;
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -39,12 +40,12 @@ class Pin
      */
     private $description;
 
-    /**
+     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     *
+     * 
      * @Vich\UploadableField(mapping="pin_image", fileNameProperty="imageName")
      * 
-     *  @var File|null
+     * @var File|null
      */
     private $imageFile;
 
@@ -53,18 +54,17 @@ class Pin
      */
     private $imageName;
 
-
     public function getId(): ?int
     {
         return $this->id;
-    }
+    } 
 
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function setTitle(?string $title): self
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
@@ -76,13 +76,13 @@ class Pin
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
         return $this;
     }
-
+    
     /**
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
      */
@@ -113,5 +113,5 @@ class Pin
 
         return $this;
     }
-
+    
 }
